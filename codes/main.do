@@ -28,3 +28,4 @@
 	local pregunta7 0
 	
 	if (`pregunta1' == 1) do "${codes}\pregunta1.do"
+	if (`pregunta2' == 1) do "${codes}\pregunta2.do"
