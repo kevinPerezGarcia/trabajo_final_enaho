@@ -22,3 +22,6 @@
 	
 	rename p208a edad
 	lab var edad "Edad de la persona en años"
+	
+*** Global
+	global var_ana ingreso_pc pobre mujer edad
