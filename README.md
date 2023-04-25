@@ -1,1 +1,14 @@
-# trabajo_final_enaho
+![logo](https://github.com/kevinPerezGarcia/kevinPerezGarcia/blob/main/logo.png)
+
+# Trabajo final - Encuesta Nacional de Hogares con Stata
+
+Trabajo final del módulo 1 "ENAHO Y ENA con Stata" del programa "Econometría con ENAHO y ENA" brindada por Valora Consultoría y dictado por el ingeniero economista [Cenes Cristhian Córdova Pinedo](https://www.linkedin.com/in/cristhian-cordova-pinedo-3352a19a/).
+
+## Autor
+
+- [@kevinPerezGarcia](https://www.linkedin.com/in/kevinperezgarcia)
+
+## 🛠 Herramientas y Encuesta
+
+Stata y Encuesta Nacional de Hogares (ENAHO)
+
