@@ -60,23 +60,23 @@
 			putexcel set "${tables}\anexo.xlsx", modify sheet("preg3-`x'", replace)
 			
 			*** Nombre de columnas
-				putexcel A1:F1, font(calibri, 11, black) bold vcenter border(all)
+				putexcel A1:F1, font(calibri, 11, black) bold vcenter hcenter border(all)
 			
-				putexcel A1 = "Categoría"				, txtwrap
-				putexcel B1 = "Media o Proporción"		, txtwrap
-				putexcel C1 = "Error Estándar"			, txtwrap
-				putexcel D1 = "Intervalo Inferior"		, txtwrap
-				putexcel E1 = "Intervalo Superior"		, txtwrap
-				putexcel F1 = "Coeficiente de Variación", txtwrap
-				
+				putexcel A1 = "Categoría"
+				putexcel B1 = "Media o Proporción"
+				putexcel C1 = "Error Estándar"
+				putexcel D1 = "Intervalo Inferior"
+				putexcel E1 = "Intervalo Superior"
+				putexcel F1 = "Coeficiente de Variación"
+
 			*** Media o proporción, y desviación estándar
 			
 				*** Según área
-					display in red "`x' según area - Media o proporción, y desviación estándar"
+					display in red "`x' según área - Media o proporción, y desviación estándar"
 					svy: mean `x', over(area)
 					
 					matrix b	= r(table)'
-					matrix aux	= b[1..2,1..2]
+					matrix aux	= b[.,"b".."se"], b[.,"ll".."ul"]
 					matrix rownames aux = "Urbano" "Rural"
 					putexcel A2 = matrix(aux), rownames
 				
@@ -85,7 +85,7 @@
 					svy: mean `x', over(dpto)
 					
 					matrix b	= r(table)'
-					matrix aux	= b[1..25,1..2]
+					matrix aux	= b[., "b".."se"], b[., "ll".."ul"]
 					matrix rownames aux =	"Amazonas"		///
 											"Ancash"		///
 											"Apurimac"		///
@@ -112,4 +112,24 @@
 											"Tumbes"		///
 											"Ucayali"
 					putexcel A4 = matrix(aux), rownames
+					
+			*** Coeficiente de variación
+			
+				*** Según área
+					display in red "`x' según área - Media o proporción, y desviación estándar"
+					svy: mean `x', over(area)
+					estat cv
+					
+					matrix b	= r(cv)'
+					matrix aux	= b[.,"r1"]
+					putexcel F2 = matrix(aux)
+				
+				*** Según departamento
+					display in red "`x' según departamento - Media o proporción, y desviación estándar"
+					svy: mean `x', over(dpto)
+					estat cv
+					
+					matrix b	= r(cv)'
+					matrix aux	= b[., "r1"]
+					putexcel F4 = matrix(aux)
 		}
