@@ -1,5 +1,8 @@
 # Bases de datos
-datawork/datas/
+datas/*.dta
 
 # Tablas de excel
-datawork/tables/
+tables/*.xlsx
+
+# Reporte de Word
+report/*.docx
