@@ -1,5 +1,8 @@
 # Bases de datos
-datas/
+datas/*.dta
 
 # Tablas de excel
-tables/
+tables/*.xlsx
+
+# Reporte de Word
+report/*.docx
