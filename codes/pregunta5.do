@@ -11,5 +11,5 @@
 	bys conglome vivienda hogar: egen n_dependientes	= sum(dependiente)
 	bys conglome vivienda hogar: egen n_independientes	= sum(independiente)
 	
-	gen tasa_dependencia = n_dependientes / n_independientes
-	lab var tasa_dependencia "Tasa de dependencia (en tanto por uno)"
+	gen		Depen_ratio = n_dependientes / n_independientes
+	lab var Depen_ratio "Tasa de dependencia (en tanto por uno)"

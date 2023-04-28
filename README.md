@@ -12,3 +12,7 @@ Trabajo final del módulo 1 "ENAHO Y ENA con Stata" del programa "Econometría c
 
 Stata y Encuesta Nacional de Hogares (ENAHO)
 
+## Trabajo
+
+En el documento *modulo1-trabajo_final.pdf* encontrará las indicaciones a desarrollar.
+

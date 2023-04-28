@@ -29,3 +29,6 @@
 		lab var tiene_3serv "Hogar con acceso a los servicios de agua, saneamiento y electricidad"
 		lab def tiene_3serv 1 "Hogar con acceso a tres servicios" 0 "Hogar sin acceso a tres servicios"
 		lab val tiene_3serv tiene_3serv
+		
+	*** Capturando variables
+		global ana_var Depen_ratio agua alcan elec tiene_3serv

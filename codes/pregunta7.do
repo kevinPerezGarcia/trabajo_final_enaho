@@ -57,7 +57,7 @@
 		foreach x of varlist $ana_var {
 			
 		*** Modificando archivo Excel
-			putexcel set "${tables}\anexo.xlsx", modify sheet("preg3-`x'", replace)
+			putexcel set "${tables}\anexo.xlsx", modify sheet("preg7-`x'", replace)
 			
 			*** Nombre de columnas
 				putexcel A1:F1	, font(calibri, 11, black) bold vcenter hcenter txtwrap
