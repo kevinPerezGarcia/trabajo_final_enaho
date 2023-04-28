@@ -60,7 +60,8 @@
 			putexcel set "${tables}\anexo.xlsx", modify sheet("preg3-`x'", replace)
 			
 			*** Nombre de columnas
-				putexcel A1:F1, font(calibri, 11, black) bold vcenter hcenter border(all)
+				putexcel A1:F1	, font(calibri, 11, black) bold vcenter hcenter txtwrap
+				putexcel A1:F28	, border(all)
 			
 				putexcel A1 = "Categoría"
 				putexcel B1 = "Media o Proporción"

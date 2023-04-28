@@ -11,14 +11,10 @@
 	*** Resultados completos e incompletos
 		keep if (result == 1  | result == 2)	// De acuerdo con el módulo 100
 		
-	*** Residentes habituales
-		codebook	p204 /// miembro del hogarp
-					p205 /// ausente del hogar mayor o igual a 30 días
-					p206 //  presente en el hogar mayor o igual a 30 días
-					
-		gen		residenteHabitual = ( (p204 == 1 & p205 == 2) | (p204 == 2 & p206 == 1) )
-		lab var residenteHabitual "Residente habitual"
-		lab def residenteHabitual 1 "Residente habitual" 0 "Residente no habitual"
-		lab val residenteHabitual residenteHabitual
+	*** Miembros del hogar
+		codebook	p204 // miembro del hogar
 		
-		keep if (residenteHabitual == 1)
+		keep if (p204 == 1)
+		
+*** Guardando base de datos
+	save "${datas}\Peru2021.dta", replace

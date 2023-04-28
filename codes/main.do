@@ -23,12 +23,14 @@
 	local pregunta2 1
 	local pregunta3 1
 	local pregunta4 1
-	local pregunta5 0
-	local pregunta6 0
+	local pregunta5 1
+	local pregunta6 1
 	local pregunta7 0
 	
 	if (`pregunta1' == 1) do "${codes}\pregunta1.do"
 	if (`pregunta2' == 1) do "${codes}\pregunta2.do"
 	if (`pregunta3' == 1) do "${codes}\pregunta3.do"
 	if (`pregunta4' == 1) do "${codes}\pregunta4.do"
+	if (`pregunta5' == 1) do "${codes}\pregunta5.do"
+	if (`pregunta6' == 1) do "${codes}\pregunta6.do"
 	
