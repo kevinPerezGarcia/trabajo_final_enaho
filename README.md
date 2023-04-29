@@ -16,3 +16,7 @@ Stata y Encuesta Nacional de Hogares (ENAHO)
 
 En el documento *modulo1-trabajo_final.pdf* encontrará las indicaciones a desarrollar.
 
+## Solución
+
+Lo solicitado en el trabajo es entregado en *report/modulo1-trabajo_final-hecho.pdf* y obtenido a partir de los códigos encontrados en *codes/*.
+
