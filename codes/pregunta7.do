@@ -69,68 +69,66 @@
 				putexcel D1 = "Intervalo Inferior"
 				putexcel E1 = "Intervalo Superior"
 				putexcel F1 = "Coeficiente de Variación"
-
-			*** Media o proporción, y desviación estándar
-			
-				*** Según área
-					display in red "`x' según área - Media o proporción, y desviación estándar"
-					svy: mean `x', over(area)
-					
-					matrix b	= r(table)'
-					matrix aux	= b[.,"b".."se"], b[.,"ll".."ul"]
-					matrix rownames aux = "Urbano" "Rural"
-					putexcel A2 = matrix(aux), rownames
 				
-				*** Según departamento
-					display in red "`x' según departamento - Media o proporción, y desviación estándar"
-					svy: mean `x', over(dpto)
-					
-					matrix b	= r(table)'
-					matrix aux	= b[., "b".."se"], b[., "ll".."ul"]
-					matrix rownames aux =	"Amazonas"		///
-											"Ancash"		///
-											"Apurimac"		///
-											"Arequipa"		///
-											"Ayacucho"		///
-											"Cajamarca"		///
-											"Callao"		///
-											"Cusco"			///
-											"Huancavelica"	///
-											"Huanuco"		///
-											"Ica"			///
-											"Junin"			///
-											"La_Libertad"	///
-											"Lambayeque"	///
-											"Lima"			///
-											"Loreto"		///
-											"Madre_de_Dios"	///
-											"Moquegua"		///
-											"Pasco"			///
-											"Piura"			///
-											"Puno"			///
-											"San_Martin"	///
-											"Tacna"			///
-											"Tumbes"		///
-											"Ucayali"
-					putexcel A4 = matrix(aux), rownames
-					
-			*** Coeficiente de variación
-			
-				*** Según área
-					display in red "`x' según área - Media o proporción, y desviación estándar"
-					svy: mean `x', over(area)
-					estat cv
-					
-					matrix b	= r(cv)'
-					matrix aux	= b[.,"r1"]
-					putexcel F2 = matrix(aux)
+			*** Cálculos
+				display in red "`x' según área"
 				
-				*** Según departamento
-					display in red "`x' según departamento - Media o proporción, y desviación estándar"
-					svy: mean `x', over(dpto)
-					estat cv
+					display in red "Media o proporción, desviación estándar, intérvalo de confianza"
 					
-					matrix b	= r(cv)'
-					matrix aux	= b[., "r1"]
-					putexcel F4 = matrix(aux)
+						svy: mean `x', cformat(%9.3fc) over(area)
+						
+							matrix b	= r(table)'
+							matrix aux1	= b[.,"b".."se"], b[.,"ll".."ul"]
+							matrix rownames aux1 = "Urbano" "Rural"
+							
+					display in red "Coeficiente de variación"
+					
+						estat cv
+						
+							matrix b	= r(cv)'
+							matrix aux2	= b[.,"r1"]
+					
+				display in red "`x' según departamento"
+				
+					display in red "Media o proporción, desviación estándar, intérvalo de confianza"
+					
+						svy: mean `x', cformat(%9.3fc) over(dpto)
+						
+							matrix b	= r(table)'
+							matrix aux3	= b[., "b".."se"], b[., "ll".."ul"]
+							matrix rownames aux3 =	"Amazonas"		///
+													"Ancash"		///
+													"Apurimac"		///
+													"Arequipa"		///
+													"Ayacucho"		///
+													"Cajamarca"		///
+													"Callao"		///
+													"Cusco"			///
+													"Huancavelica"	///
+													"Huanuco"		///
+													"Ica"			///
+													"Junin"			///
+													"La_Libertad"	///
+													"Lambayeque"	///
+													"Lima"			///
+													"Loreto"		///
+													"Madre_de_Dios"	///
+													"Moquegua"		///
+													"Pasco"			///
+													"Piura"			///
+													"Puno"			///
+													"San_Martin"	///
+													"Tacna"			///
+													"Tumbes"		///
+													"Ucayali"
+						
+					display in red "Coeficiente de variación"
+					
+						estat cv
+						
+							matrix b	= r(cv)'
+							matrix aux4	= b[., "r1"]
+						
+				matrix aux = [aux1, aux2] \ [aux3, aux4]
+				putexcel A2 = matrix(aux), rownames
 		}
